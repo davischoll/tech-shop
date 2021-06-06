@@ -1,3 +1,32 @@
+# Desafio | Next.js
+
+Página construída como desafio para treino do Framework Nextjs + Reactjs, com SSR. Desenvolvimento de uma landing page com uma grade de produtos.
+
+## Funcionalidades
+
+**Endpoint da API:** [API](https://frontend-intern-challenge-api.iurykrieger.now.sh/products?page=1)
+
+Para preencher a página com as informações dos produtos, é realizada uma consulta à API de forma paginada, em que cada página consultada retorna as informações de __8 produtos__ e um link para a __próxima página__.
+
+Ao obter os dados os seguintes pontos são implementados:
+
+- Para cada produto retornado pela API, um card de produto com as respectivas informações é criado no grid de produtos;
+- Ao clicar no botão *"Próxima Página"* a próxima página da API é consultada, trazendo mais 8 novos produtos e exibindo na tela;
+- Ao clicar no botão *"Página Anterior"* a página anterior da API é consultada, trazendo novamente os 8 produtos, já exibidos anteriormente, para a tela;
+
+## Autor:
+
+* **Davi Scholl** - [LinkedIn](https://www.linkedin.com/in/davischoll/)
+
+## Licença
+
+Licenciado sob a licença MIT - veja [LICENSE](LICENSE.md) para mais informações.
+
+
+---
+
+# Next.js
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -12,20 +41,8 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
 ## Deploy on Vercel
 
