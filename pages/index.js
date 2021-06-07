@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import React, { useEffect, useState } from 'react'
+import ProductList from '../components/ProductList'
 
 const Home = ({ products }) => {
   const [produtos, setProducts] = useState(products)
@@ -11,22 +12,31 @@ const Home = ({ products }) => {
     setPage(page+1)
   }
 
-  useEffect( async() => {
+  useEffect(async() => {
     const response = await fetch(`https://frontend-intern-challenge-api.iurykrieger.vercel.app/products?page=${page}`)
     const data = await response.json()
 
     setProducts(data.products)
+
+    if (page > 1)
+      document.getElementById('previousBtn').hidden = false
+    else
+      document.getElementById('previousBtn').hidden = true
   }, [page])
 
   const previousProducts = async() => {
     setPage(page-1)
   }
 
-  useEffect( async() => {
+  useEffect(async() => {
     const response = await fetch(`https://frontend-intern-challenge-api.iurykrieger.vercel.app/products?page=${page}`)
     const data = await response.json()
 
     setProducts(data.products)
+    if (page > 1)
+      document.getElementById('previousBtn').hidden = false
+    else
+      document.getElementById('previousBtn').hidden = true
   }, [page])
 
   return (
@@ -45,22 +55,11 @@ const Home = ({ products }) => {
 
       <main className={styles.main}>
 
-        <div className={styles.productList}>
-          {produtos.map((produto) => (
-            <div key={produto.id} className={styles.productItem}>
-              <img src={produto.image} width={160} height={160} />
-              <h3>{produto.name}</h3>
-              <p>{produto.description}</p>
-              <p>De: R${produto.oldPrice}</p>
-              <h4>Por: R${produto.price}</h4>
-              <p>Ou {produto.installments.count}x de R${produto.installments.value}</p>
-            </div>
-          ))}
-        </div>
+        <ProductList produtos={produtos} />
 
         <div className={styles.navButtons}>
 
-          <button type="button" className={styles.btnCarregarMaisProdutos} onClick={previousProducts}>
+          <button type="button" id="previousBtn" className={styles.btnCarregarMaisProdutos} onClick={previousProducts}>
             Página anterior
           </button>
           <button type="button" className={styles.btnCarregarMaisProdutos} onClick={nextProducts}>

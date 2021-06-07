@@ -1,0 +1,21 @@
+main .productList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+
+  width: 100%;
+}
+
+main .productList .productItem h3 {
+  font-size: 16px;
+  margin: 0.5rem 0;
+}
+
+main .productList .productItem h4 {
+  margin: 0.5rem 0;
+}
+
+main .productList .productItem p {
+  font-size: 12px;
+  margin: 0.5rem 0;
+}
